@@ -119,7 +119,10 @@ function showSpecial() {
 /* ---------- Theme ---------- */
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('themeBtn').textContent = theme === 'dark' ? 'Light' : 'Dark';
+  const btn = document.getElementById('themeBtn');
+  if (btn) {
+    btn.textContent = theme === 'dark' ? 'Light' : 'Dark';
+  }
 }
 
 function toggleTheme() {
@@ -129,8 +132,7 @@ function toggleTheme() {
 
 /* ---------- Start ---------- */
 (function init() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(prefersDark ? 'dark' : 'light');
+  applyTheme('light');
   renderMenu();
   window.addEventListener('hashchange', route);
   route();
