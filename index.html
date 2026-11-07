@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RLA Canteen</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <button class="brand" onclick="go('#home')">
+      <span class="brand-mark">R</span>
+      <span>RLA Canteen</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle light or dark mode">Dark</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <span class="hero-eyebrow">Open for lunch and snacks</span>
+      <h2>Good food, close to your classes.</h2>
+      <p>Browse the full menu, or let us surprise you with today's special category.</p>
+    </div>
+    <div class="tiles">
+      <button class="tile" onclick="go('#menu')">
+        <span class="tile-icon">🍽️</span>
+        <span class="tile-title">Menu</span>
+        <span class="tile-desc">See everything we serve, with prices.</span>
+        <span class="tile-go">Browse menu &rarr;</span>
+      </button>
+      <button class="tile" onclick="showSpecial()">
+        <span class="tile-icon">✨</span>
+        <span class="tile-title">Specials</span>
+        <span class="tile-desc">A surprise category picked just for today.</span>
+        <span class="tile-go">Surprise me &rarr;</span>
+      </button>
+      <button class="tile" onclick="go('#map')">
+        <span class="tile-icon">📍</span>
+        <span class="tile-title">Map</span>
+        <span class="tile-desc">Find the canteen and check timings.</span>
+        <span class="tile-go">Find us &rarr;</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="view" id="view-menu">
+    <button class="back" onclick="go('#home')">&larr; Back to home</button>
+    <div class="page-head">
+      <h1>Menu</h1>
+      <p class="subtitle">Pick a category to see what's on offer.</p>
+    </div>
+    <div class="cat-grid" id="menuGrid"></div>
+  </section>
+
+  <section class="view" id="view-category">
+    <button class="back" onclick="go('#menu')">&larr; Back to menu</button>
+    <div id="specialBanner"></div>
+    <div class="page-head">
+      <h1 id="catTitle"></h1>
+      <p class="subtitle" id="catSub"></p>
+    </div>
+    <div class="item-panel" id="itemList"></div>
+  </section>
+
+  <section class="view" id="view-map">
+    <button class="back" onclick="go('#home')">&larr; Back to home</button>
+    <div class="page-head">
+      <h1>Find us</h1>
+      <p class="subtitle">Come grab a bite between lectures.</p>
+    </div>
+    <div class="map-grid">
+      <div class="map-card">
+        <h3>Location</h3>
+        <p>RLA Canteen, Ram Lal Anand College campus.</p>
+        <a class="btn-link" href="https://www.google.com/maps/search/?api=1&query=RLA+Canteen" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+      <div class="map-card">
+        <h3>Opening hours</h3>
+        <div class="hours-row"><span>Monday to Friday</span><span>8:30 AM to 4:30 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span>8:30 AM to 1:30 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Menu data first, then the app logic that uses it -->
+<script src="js/menu-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
